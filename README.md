@@ -6,7 +6,7 @@ Well... Since I am not really a major Android developer, I just don't know JCent
 
 The official guide taught you to migrate to Maven Central, but not all dependencies are available there.
 
-Luckily, I found Aliyun has a mirror of JCenter, which is still available, so I wrote this script to backup my JCenter dependencies to a local directory.
+Luckily, I found Aliyun has a mirror of JCenter, which is still available, so I wrote this program to backup my JCenter dependencies to a local directory.
 
 > [!CAUTION]
 > Aliyun could possibly shut down their JCenter mirror at any time, so you should backup your dependencies as soon as possible.
