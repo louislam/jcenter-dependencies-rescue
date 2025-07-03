@@ -1,6 +1,6 @@
 # JCenter Mirror
 
-Last chance to backup your JCenter dependencies!
+Last chance to rescue and backup your JCenter dependencies!
 
 Well... Since I am not really a major Android developer, I just don't know JCenter has been shut down until now. My Android app is completely broken and can not be built anymore.
 
@@ -8,8 +8,12 @@ The official guide taught you to migrate to Maven Central, but not all dependenc
 
 Luckily, I found Aliyun has a mirror of JCenter, which is still available, so I wrote this script to backup my JCenter dependencies to a local directory.
 
+> **Warning**
+> Aliyun could possibly shut down their JCenter mirror at any time, so you should backup your dependencies as soon as possible.
+
 ## Features
 
+- Rescue you Android projects that depend on JCenter.
 - Backup your JCenter dependencies to a local directory.
 - Mainly for Android
 
@@ -49,7 +53,7 @@ So next time when you need the dependencies, you can start the server again.
 
 ## Local Server-less
 
-In case you don't want to start a local server, it seems that you can point a local path directly. I haven't tested this yet, but it should work.
+In case you don't want to start a local server, it seems that you can point to a local path directly. I haven't tested this yet, but it should work.
 
 Absolute path example:
 
@@ -70,6 +74,6 @@ maven {
 Reference: https://stackoverflow.com/a/73216136/1097815
 
 
-## Side Note
+## Side Notes
 
-The experience of Android development is just terrible. I have several Android projects in over 10 years, and I have to migrate them every few years. Things that claimed to be "best practice", and next year it may become deprecated.
+- The experience of Android development is just terrible. I have several Android projects in over 10 years, and I have to migrate them every few years. Things that claimed to be "best practice", and next year it may become deprecated.
