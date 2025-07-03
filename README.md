@@ -8,7 +8,7 @@ The official guide taught you to migrate to Maven Central, but not all dependenc
 
 Luckily, I found Aliyun has a mirror of JCenter, which is still available, so I wrote this script to backup my JCenter dependencies to a local directory.
 
-> **Warning**
+> [!CAUTION]
 > Aliyun could possibly shut down their JCenter mirror at any time, so you should backup your dependencies as soon as possible.
 
 ## Features
