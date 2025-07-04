@@ -20,8 +20,7 @@ export async function main() {
         const requestURL = `${upstreamURL}${url.pathname}`;
         const filePath = path.join(dataDir, url.pathname);
 
-        console.log(`Requesting: ${requestURL}`);
-        console.log(`Method: ${req.method}`);
+        console.log(`Original Method: ${req.method}`);
 
         // Check if cached
         if (await fs.exists(filePath)) {
@@ -36,21 +35,22 @@ export async function main() {
             }
         }
 
+        console.log(`Requesting: ${requestURL}`);
+
         // Fetch from upstream
         const response = await fetch(requestURL, {
-            method: req.method,
+            method: "GET",      // For GET requests instead of HEAD
             headers: headers,
             body: req.body,
         });
 
         console.log(`Response status: ${response.status}`);
 
-        // Cache the file if request is not a HEAD request
-        if (response.ok && req.method !== "HEAD") {
+        // Cache the file if request
+        if (response.ok) {
             const dir = path.dirname(filePath);
             await Deno.mkdir(dir, { recursive: true });
             const arrayBuffer = await response.arrayBuffer();
-
 
             console.log(`Length: ${arrayBuffer.byteLength} bytes`);
 
