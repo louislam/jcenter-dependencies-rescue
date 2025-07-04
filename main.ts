@@ -6,6 +6,7 @@ export async function main() {
      * Upstream JCenter Mirror
      */
     const upstreamURL = "https://maven.aliyun.com/repository/public";
+    //const upstreamURL = "https://maven.joyyinc.com/nexus/content/repositories/public";
 
     /**
      * Local data directory
@@ -44,11 +45,12 @@ export async function main() {
 
         console.log(`Response status: ${response.status}`);
 
-        // Cache the file
-        if (response.ok) {
+        // Cache the file if request is not a HEAD request
+        if (response.ok && req.method !== "HEAD") {
             const dir = path.dirname(filePath);
             await Deno.mkdir(dir, { recursive: true });
             const arrayBuffer = await response.arrayBuffer();
+
 
             console.log(`Length: ${arrayBuffer.byteLength} bytes`);
 
