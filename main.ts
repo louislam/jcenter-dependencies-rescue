@@ -5,7 +5,7 @@ export async function main() {
     /**
      * Upstream JCenter Mirror
      */
-    const upstreamURL = "https://maven.aliyun.com/repository/jcenter";
+    const upstreamURL = "https://maven.aliyun.com/repository/public";
 
     /**
      * Local data directory
@@ -20,6 +20,7 @@ export async function main() {
         const filePath = path.join(dataDir, url.pathname);
 
         console.log(`Requesting: ${requestURL}`);
+        console.log(`Method: ${req.method}`);
 
         // Check if cached
         if (await fs.exists(filePath)) {
@@ -41,11 +42,21 @@ export async function main() {
             body: req.body,
         });
 
+        console.log(`Response status: ${response.status}`);
+
         // Cache the file
         if (response.ok) {
             const dir = path.dirname(filePath);
             await Deno.mkdir(dir, { recursive: true });
             const arrayBuffer = await response.arrayBuffer();
+
+            console.log(`Length: ${arrayBuffer.byteLength} bytes`);
+
+            if (arrayBuffer.byteLength === 0) {
+                console.warn(`Received empty response for ${requestURL}. Not caching.`);
+                return new Response("No content", { status: 404 });
+            }
+
             await Deno.writeFile(filePath, new Uint8Array(arrayBuffer));
             return new Response(arrayBuffer, {
                 headers: response.headers,
