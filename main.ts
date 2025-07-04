@@ -39,7 +39,7 @@ export async function main() {
 
         // Fetch from upstream
         const response = await fetch(requestURL, {
-            method: "GET",      // For GET requests instead of HEAD
+            method: "GET",      // Force GET requests instead of HEAD
             headers: headers,
             body: req.body,
         });
