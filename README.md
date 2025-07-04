@@ -20,8 +20,8 @@ Luckily, I found Aliyun has a mirror of JCenter, which is still available, so I 
 ## How to Use
 
 1. Install [Deno 2.X](https://docs.deno.com/runtime/)
-2. `git clone https://github.com/louislam/jcenter-mirror` or download this repo
-3. `cd jcenter-mirror`
+2. `git clone https://github.com/louislam/jcenter-dependencies-rescue` or download this repo
+3. `cd jcenter-dependencies-rescue`
 4. Start the server by `deno task start`
 5. Now go to your Android project and add the following to your `build.gradle`:
 
@@ -59,7 +59,7 @@ Absolute path example:
 
 ```groovy
 maven {
-    url "file:///full/path/to/your/jcenter-mirror/data"
+    url "file:///full-path-to-your/jcenter-dependencies-rescue/data"
 }
 ```
 
@@ -67,13 +67,9 @@ Relative path example:
 
 ```groovy
 maven {
-   url = uri("${project.getRootDir()}/sample-project")
+   url = uri("${project.getRootDir()}/jcenter-data")
 }
 ```
 
 Reference: https://stackoverflow.com/a/73216136/1097815
 
-## Side Notes
-
-- The experience of Android development is just terrible. I have several Android projects in over 10 years, and I have to migrate them every few years. Things that claimed to be "best practice", and
-  next year it may become deprecated.
