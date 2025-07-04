@@ -53,7 +53,7 @@ So next time when you need the dependencies, you can start the server again.
 
 ## Local Server-less
 
-In case you don't want to start a local server, it seems that you can point to a local path directly. I haven't tested this yet, but it should work.
+In case, when the dependencies have been cached, and you don't want to start the local server, it seems that you can point to a local path directly. I haven't tested this yet, but it should work.
 
 Absolute path example:
 
